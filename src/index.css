@@ -15,9 +15,8 @@
   transform: translate(-50%, -50%); /* Center the image on cursor position */
 }
 
-/* Spinning animation */
+/* Custom cursor image styling */
 .custom-cursor img {
-  animation: spin 2s linear infinite; /* Continuous smooth spin */
-  width: 48px; /* 50% larger than 32px */
+  width: 48px;
   height: 48px;
 }
