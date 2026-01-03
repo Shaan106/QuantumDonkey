@@ -6,7 +6,7 @@ interface CustomCursorProps {
 }
 
 // Physics constants
-const VELOCITY_TO_ROTATION_FACTOR = 10.0; // Sensitivity of movement to rotation (EXTREME spin!)
+const VELOCITY_TO_ROTATION_FACTOR = 10.1; // Sensitivity of movement to rotation (EXTREME spin!)
 const FRICTION = 0.9999; // Very low friction (long momentum decay)
 const MIN_ANGULAR_VELOCITY = 0.01; // Threshold to stop rotation completely
 const SMOOTHING = 0.3; // Smoothing factor for velocity (0-1, lower = more smoothing)
