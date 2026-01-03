@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global cursor styling */
+* {
+  cursor: none; /* Hide default cursor */
+}
+
+/* Custom cursor container */
+.custom-cursor {
+  position: fixed;
+  pointer-events: none; /* Cursor shouldn't block clicks */
+  z-index: 9999;
+  transform: translate(-50%, -50%); /* Center the image on cursor position */
+}
+
+/* Spinning animation */
+.custom-cursor img {
+  animation: spin 2s linear infinite; /* Continuous smooth spin */
+  width: 48px; /* 50% larger than 32px */
+  height: 48px;
+}
