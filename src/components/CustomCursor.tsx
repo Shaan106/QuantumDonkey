@@ -136,13 +136,15 @@ const CustomCursor: React.FC<CustomCursorProps> = ({
     const handleClick = (e: MouseEvent) => {
       const clickPos = { x: e.clientX, y: e.clientY };
 
-      // Stop momentum
-      angularVelocityRef.current = 0;
-
       // Trigger animation
       if (onClickAnimation) {
         onClickAnimation(clickPos);
       }
+
+      // Stop momentum after knife arrives (300ms travel time)
+      setTimeout(() => {
+        angularVelocityRef.current = 0;
+      }, 300);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
