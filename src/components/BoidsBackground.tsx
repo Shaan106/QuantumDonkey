@@ -35,15 +35,17 @@ class Boid {
     this.acceleration.y += force.y;
   }
 
-  flock(boids: Boid[], mouse: Vector) {
+  flock(boids: Boid[], mouse: Vector, isMouseDown: boolean) {
     const alignment = this.align(boids);
     const cohesion = this.cohesion(boids);
     const separation = this.separation(boids);
-    const mouseForce = this.seek(mouse);
+    const mouseForce = this.seek(mouse, isMouseDown);
 
     alignment.x *= 1.0; alignment.y *= 1.0;
     cohesion.x *= 1.0; cohesion.y *= 1.0;
-    separation.x *= 1.5; separation.y *= 1.5;
+    separation.x *= 2.5; separation.y *= 2.5;
+    
+    // Mouse force weight can be adjusted
     mouseForce.x *= 2.0; mouseForce.y *= 2.0;
 
     this.applyForce(alignment);
@@ -52,16 +54,22 @@ class Boid {
     this.applyForce(mouseForce);
   }
 
-  seek(target: Vector): Vector {
+  seek(target: Vector, attract: boolean): Vector {
     const desired = {
       x: target.x - this.position.x,
       y: target.y - this.position.y,
     };
     const distance = Math.sqrt(desired.x ** 2 + desired.y ** 2);
     
-    // Only seek if mouse is within a certain distance or always? 
-    // Let's make them always vaguely aware but stronger when close.
+    // Repel radius (flee) vs Attract radius (seek)
+    // Let's use 400 for both for now
     if (distance > 0 && distance < 400) {
+      // If we want to repel (scare), we reverse the desired vector
+      if (!attract) {
+        desired.x *= -1;
+        desired.y *= -1;
+      }
+
       const speed = this.maxSpeed;
       desired.x = (desired.x / distance) * speed;
       desired.y = (desired.y / distance) * speed;
@@ -117,24 +125,22 @@ class Boid {
   separation(boids: Boid[]): Vector {
     let steering = { x: 0, y: 0 };
     let total = 0;
+    const separationDistance = 30;
     for (const other of boids) {
       const d = Math.sqrt(
         (this.position.x - other.position.x) ** 2 +
         (this.position.y - other.position.y) ** 2
       );
-      if (other !== this && d < this.perceptionRadius / 2) {
+      if (other !== this && d < separationDistance) {
         const diff = {
           x: this.position.x - other.position.x,
           y: this.position.y - other.position.y,
         };
-        const distSq = diff.x ** 2 + diff.y ** 2;
-        if (distSq > 0) {
-          diff.x /= Math.sqrt(distSq);
-          diff.y /= Math.sqrt(distSq);
-          steering.x += diff.x;
-          steering.y += diff.y;
-          total++;
-        }
+        diff.x /= d;
+        diff.y /= d;
+        steering.x += diff.x;
+        steering.y += diff.y;
+        total++;
       }
     }
     if (total > 0) {
@@ -226,6 +232,7 @@ const BoidsBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const boidsRef = useRef<Boid[]>([]);
   const mouseRef = useRef<Vector>({ x: -1000, y: -1000 });
+  const mouseDownRef = useRef<boolean>(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -238,7 +245,6 @@ const BoidsBackground: React.FC = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       
-      // Initialize boids if not already done
       if (boidsRef.current.length === 0) {
         for (let i = 0; i < 100; i++) {
           boidsRef.current.push(new Boid(Math.random() * canvas.width, Math.random() * canvas.height));
@@ -250,8 +256,18 @@ const BoidsBackground: React.FC = () => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
     };
 
+    const handleMouseDown = () => {
+      mouseDownRef.current = true;
+    };
+
+    const handleMouseUp = () => {
+      mouseDownRef.current = false;
+    };
+
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mouseup', handleMouseUp);
     handleResize();
 
     let animationFrameId: number;
@@ -261,7 +277,7 @@ const BoidsBackground: React.FC = () => {
 
       for (const boid of boidsRef.current) {
         boid.edges(canvas.width, canvas.height);
-        boid.flock(boidsRef.current, mouseRef.current);
+        boid.flock(boidsRef.current, mouseRef.current, mouseDownRef.current);
         boid.update();
         boid.draw(ctx);
       }
@@ -274,6 +290,8 @@ const BoidsBackground: React.FC = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
