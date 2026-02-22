@@ -106,7 +106,11 @@ function App() {
         link: "https://en.wikipedia.org/wiki/Plague_doctor",
       },
       { name: "Andrew", role: "[tbd]", link: "#" },
-      // { name: "[tbd]", role: "[tbd]", link: "#" },
+      {
+        name: "Caleb",
+        role: "Town Arsonist",
+        link: "https://en.wikipedia.org/wiki/Arson",
+      },
       // { name: "[tbd]", role: "[tbd]", link: "#" },
       // { name: "[tbd]", role: "[tbd]", link: "#" },
     ];
