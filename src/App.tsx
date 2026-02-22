@@ -87,7 +87,7 @@ function App() {
       {
         name: "Ishan",
         role: "(Puppet) Mayor",
-        link: "https://en.wikipedia.org/wiki/Mayor",
+        link: "https://en.wikipedia.org/wiki/Puppet_ruler",
       },
       {
         name: "Nick",
@@ -99,7 +99,11 @@ function App() {
         role: "Crypto Charlatan",
         link: "https://en.wikipedia.org/wiki/FTX",
       },
-      { name: "Ben W", role: "[tbd]", link: "#" },
+      {
+        name: "Ben W",
+        role: "Cow Tools Specialist",
+        link: "https://en.wikipedia.org/wiki/Cow_tools",
+      },
       {
         name: "Caden",
         role: "Plague Doctor",
@@ -114,10 +118,13 @@ function App() {
       // { name: "[tbd]", role: "[tbd]", link: "#" },
       // { name: "[tbd]", role: "[tbd]", link: "#" },
     ];
+    const ishanIndex = list.findIndex((p) => p.name === "Ishan");
+    const [ishan] = list.splice(ishanIndex, 1);
     for (let i = list.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [list[i], list[j]] = [list[j], list[i]];
     }
+    list.push(ishan);
     return list;
   }, []);
 
