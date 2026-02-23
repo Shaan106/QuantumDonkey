@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import "./App.css";
+import Map from "./Map";
 
 function App() {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
@@ -56,12 +57,12 @@ function App() {
       {
         name: "Shaan",
         role: "Chief Warmonger",
-        link: "https://en.wikipedia.org/wiki/Warmonger",
+        link: "https://en.wikipedia.org/wiki/The_Dictator",
       },
       {
         name: "Ed",
         role: "Unpaid Therapist",
-        link: "https://en.wikipedia.org/wiki/Therapy",
+        link: "https://en.wikipedia.org/wiki/Nihilism",
       },
       {
         name: "Mike",
@@ -71,7 +72,7 @@ function App() {
       {
         name: "Ben V",
         role: "Radical Environmentalist",
-        link: "https://en.wikipedia.org/wiki/Radical_environmentalism",
+        link: "https://en.wikipedia.org/wiki/Ocean_sunfish",
       },
       {
         name: "Tate",
@@ -109,11 +110,15 @@ function App() {
         role: "Plague Doctor",
         link: "https://en.wikipedia.org/wiki/Plague_doctor",
       },
-      { name: "Andrew", role: "[tbd]", link: "#" },
+      {
+        name: "Andrew",
+        role: "Bard",
+        link: "https://en.wikipedia.org/wiki/List_of_Asterix_characters#Cacofonix",
+      },
       {
         name: "Caleb",
         role: "Town Arsonist",
-        link: "https://en.wikipedia.org/wiki/Arson",
+        link: "https://en.wikipedia.org/wiki/Gunpowder_Plot",
       },
       // { name: "[tbd]", role: "[tbd]", link: "#" },
       // { name: "[tbd]", role: "[tbd]", link: "#" },
@@ -180,8 +185,10 @@ function App() {
       </div>
 
       <div id="updates-section" className="updates-section">
-        <div className="updates-title">Compound Updates</div>
-        <div className="updates-subtitle">[coming soon]</div>
+        <div className="updates-title">Map</div>
+        <div className="map-container">
+          <Map people={people} />
+        </div>
       </div>
     </>
   );
