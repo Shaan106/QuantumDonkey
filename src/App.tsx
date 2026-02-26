@@ -79,7 +79,7 @@ function App() {
         role: "Gate",
         link: "https://en.wikipedia.org/wiki/Gate",
       },
-      { name: "Malachy", role: "[tbd]", link: "#" },
+      { name: "Malachy", role: "Child Labor Union President", link: "#" },
       {
         name: "Miguel",
         role: "Jesse Pinkman",
@@ -139,14 +139,14 @@ function App() {
         <h1 className="title">The Compound</h1>
         <div className="timer-center">
           <div className="timer-line">
-            <span className="timer-number">{timeLeft.years}</span>years{" "}
-            <span className="timer-number">{timeLeft.months}</span>months{" "}
-            <span className="timer-number">{timeLeft.days}</span>days
+            <span className="timer-number">{timeLeft.years}</span>years{"
+            "}<span className="timer-number">{timeLeft.months}</span>months{"
+            "}<span className="timer-number">{timeLeft.days}</span>days
           </div>
           <div className="timer-line">
-            <span className="timer-number">{timeLeft.hours}</span>hours{" "}
-            <span className="timer-number">{timeLeft.minutes}</span>minutes{" "}
-            <span className="timer-number">{timeLeft.seconds}</span>seconds
+            <span className="timer-number">{timeLeft.hours}</span>hours{"
+            "}<span className="timer-number">{timeLeft.minutes}</span>minutes{"
+            "}<span className="timer-number">{timeLeft.seconds}</span>seconds
           </div>
         </div>
         <button
