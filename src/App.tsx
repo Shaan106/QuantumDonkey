@@ -143,9 +143,9 @@ function App() {
         <h1 className="title">The Compound</h1>
         <div className="timer-center">
           <div className="timer-line">
-            <span className="timer-number">{timeLeft.years}</span>years{"
-            "}<span className="timer-number">{timeLeft.months}</span>months{"
-            "}<span className="timer-number">{timeLeft.days}</span>days
+            <span className="timer-number">{timeLeft.years}</span>years{" "}
+            <span className="timer-number">{timeLeft.months}</span>months{" "}
+            <span className="timer-number">{timeLeft.days}</span>days
           </div>
           <div className="timer-line">
             <span className="timer-number">{timeLeft.hours}</span>hours{" "}
