@@ -148,9 +148,9 @@ function App() {
             "}<span className="timer-number">{timeLeft.days}</span>days
           </div>
           <div className="timer-line">
-            <span className="timer-number">{timeLeft.hours}</span>hours{"
-            "}<span className="timer-number">{timeLeft.minutes}</span>minutes{"
-            "}<span className="timer-number">{timeLeft.seconds}</span>seconds
+            <span className="timer-number">{timeLeft.hours}</span>hours{" "}
+            <span className="timer-number">{timeLeft.minutes}</span>minutes{" "}
+            <span className="timer-number">{timeLeft.seconds}</span>seconds
           </div>
         </div>
         <button
