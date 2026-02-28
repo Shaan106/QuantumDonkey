@@ -77,7 +77,7 @@ function App() {
       {
         name: "Tate",
         role: "Gate",
-        link: "/tate/index.html",
+        link: "/tate/gate.html",
       },
       { 
         name: "Malachy", 
