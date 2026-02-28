@@ -79,7 +79,11 @@ function App() {
         role: "Gate",
         link: "/tate/",
       },
-      { name: "Malachy", role: "[tbd]", link: "#" },
+      { 
+        name: "Malachy", 
+        role: "Child Labor Union President", 
+        link: "https://en.wikipedia.org/wiki/Mr._Bumble", 
+      },
       {
         name: "Miguel",
         role: "Jesse Pinkman",
