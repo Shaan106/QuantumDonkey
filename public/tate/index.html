@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        .carousel-container {
+            width: 1200px;
+            height: 500px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
+
+        .carousel-track img {
+            width: 400px;
+            height: 600px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-2000px);
+            }
+        }
+
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+
+        .stats-section {
+            flex: 1;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Date Tate</h1>
+
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <img src="tate_1.jpeg" alt="Tate 1">
+            <img src="tate_2.jpeg" alt="Tate 2">
+            <img src="tate_3.jpeg" alt="Tate 3">
+            <img src="tate_4.jpeg" alt="Tate 4">
+            <img src="tate_5.jpeg" alt="Tate 5">
+            <!-- Duplicate images for seamless loop -->
+            <img src="tate_1.jpeg" alt="Tate 1">
+            <img src="tate_2.jpeg" alt="Tate 2">
+            <img src="tate_3.jpeg" alt="Tate 3">
+            <img src="tate_4.jpeg" alt="Tate 4">
+            <img src="tate_5.jpeg" alt="Tate 5">
+        </div>
+    </div>
+
+    <p>Tate is a wonderful, single, young heartthrob. This site contains complete unbiased reviews from his esteemed (and beautiful) entourage.</p>
+    <p>If interested, email <a href="mailto:tate.date.management@gmail.com">tate.date.management@gmail.com</a></p>
+
+    <h2>Statistics</h2>
+
+    <div class="stats-container">
+        <div class="stats-section">
+            <h3>Physical Stats</h3>
+            <ul>
+                <li>Height: same as Ryan Gosling</li>
+                <li>Hair: basically DiCaprio</li>
+                <li>Eyes: Striking</li>
+                <li>Build: Stunning</li>
+            </ul>
+        </div>
+
+        <div class="stats-section">
+            <h3>Pros</h3>
+            <ul>
+                <li>Can grow a beard</li>
+                <li>Has golden retriever (can kidnap from his home with ease)</li>
+                <li>Not Jobless</li>
+                <li>Very low regard for safety of limbs</li>
+                <li>Knows every line of Princess Bride by heart</li>
+            </ul>
+        </div>
+
+        <div class="stats-section">
+            <h3>Cons</h3>
+            <ul>
+                <li>Exceedingly good at the Wii sports games (even when drunk)</li>
+                <li>Evil quantative finance villain</li>
+                <li>May blame farts on you</li>
+                <li>Knows every line of Princess Bride by heart</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Literature Reviews</h2>
+
+    <p>Tate likes tape and mates and grates and flakes - BV</p>
+    <p>Ask him about his golden retriever - OW</p>
+    <p>This fella named Tate, quite a force, <br>
+        Chugs his beer with no hint of remorse. <br>
+        With a Wii remote in hand, <br>
+        He'll red shell all over the land, <br>
+        Then burp loudly, right after he wins of course. - SY</p>
+    <p>Tate is definitely one of the most fun people you will ever meet. I wouldn’t say he is an agent of chaos so much that chaos finds him, and he makes a good time out of it. - DF</p>
+
+</body>
+</html>

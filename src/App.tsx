@@ -77,7 +77,7 @@ function App() {
       {
         name: "Tate",
         role: "Gate",
-        link: "https://en.wikipedia.org/wiki/Gate",
+        link: "/tate/",
       },
       { name: "Malachy", role: "[tbd]", link: "#" },
       {
