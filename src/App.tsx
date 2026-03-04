@@ -82,7 +82,7 @@ function App() {
       { 
         name: "Malachy", 
         role: "Child Labor Union President", 
-        link: "https://en.wikipedia.org/wiki/Mr._Bumble", 
+        link: "https://en.wikipedia.org/wiki/Child_labour#Potential_positives", 
       },
       {
         name: "Miguel",
