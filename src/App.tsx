@@ -117,7 +117,7 @@ function App() {
       {
         name: "Andrew",
         role: "Bard",
-        link: "https://en.wikipedia.org/wiki/List_of_Asterix_characters#Cacofonix",
+        link: "https://www.youtube.com/watch?v=cRIfsFefatg",
       },
       {
         name: "Caleb",
